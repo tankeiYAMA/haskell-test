@@ -1,1 +1,1 @@
-main=putStrLn "Hello GitHub"
+main=putStrLn "Hello GitHub2"
