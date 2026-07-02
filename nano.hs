@@ -1,11 +1,19 @@
-data Sector = Sector Int Int Int deriving Show
+import Data.Semigroup
 
-instance Semigroup Sector where
+data Sector a = Sector a a a deriving Show
+
+instance Functor Sector where
+  fmap f (Sector a b c) =
+    Sector (f a) (f b) (f c)
+
+instance Semigroup a => Semigroup (Sector a) where
   Sector a1 b1 c1 <> Sector a2 b2 c2 =
-    Sector (a1+a2) (b1+b2) (c1+c2)
+    Sector (a1 <> a2) (b1 <> b2) (c1 <> c2)
 
-instance Monoid Sector where
-  mempty = Sector 0 0 0
+instance Monoid a => Monoid (Sector a) where
+  mempty = Sector mempty mempty mempty
 
-s1 = Sector 3 4 5
-s2 = Sector 6 8 10
+-- ★ここを変更
+s1 = Sector (Sum 3) (Sum 4) (Sum 5)
+s2 = Sector (Sum 6) (Sum 8) (Sum 10)
+
