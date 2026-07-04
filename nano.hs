@@ -24,3 +24,8 @@ lucky x = "BOO!"
 factrial :: Int -> Int
 factrial 0=1
 factrial n=n*factrial (n-1)
+
+
+addVectors :: (Double,Double)->(Double,Double)->(Double,Double)
+addVectors (x1,y1) (x2,y2)=(x1+x2,y1+y2)
+
