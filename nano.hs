@@ -29,3 +29,8 @@ factrial n=n*factrial (n-1)
 addVectors :: (Double,Double)->(Double,Double)->(Double,Double)
 addVectors (x1,y1) (x2,y2)=(x1+x2,y1+y2)
 
+xs =[(1,3),(4,3),(2,4),(5,3),(5,6),(3,1)]
+
+firstLetter :: String->String
+firstLetter "" ="Empty string!"
+firstLetter all@(x:xp)="The first letter of " ++ all ++" is " ++[x]
